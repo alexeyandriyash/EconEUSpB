@@ -1,5 +1,5 @@
-###Game # 1
-###by Andriyash, Babkina, Tokareva
+###Game # 1  
+###by Andriyash, Babkina, Tokareva  
 
 ###Ref
 - Python for Data Analysis, by Wes McKinney
