@@ -94,10 +94,28 @@ $\sum_{k=0}^{3}P(k) = \frac{19}{3}e^{-2}$
 
 Решение:\\
 
+$F_\xi(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$\\
+\\
+(**) $f_\eta(x) = f_\eta(g^{-1}(x))|(g^{-1}(x))'|$\\
+
+$f_\eta = F_\eta(\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}))' = (e^{\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}})'$\\
+\\
+\\
+$\frac{x-\mu}{\sqrt{2\pi}\sigma^3}$
+$e^{\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}}$
+$e^{-\frac{-(x-\mu)^2}{2\sigma^2}}$
+\\
+
+
 \subsection*{35}
-Найдите функцию квантилей экспоненциального расперделения с параметром $\lambda$.\\
+Найдите функцию квантилей экспоненциального распределения с параметром $\lambda$.\\
 Найдите медиану и 5\%-ую точку.\\
 
 Решение:\\
-
+\\
+$F(x)=\lambda*e^{-\lambda*x}$\\
+$Q(\alpha) = F^-1(x) = \frac{1}{\lambda}e^{\lambda*\alpha}$ , $\lambda>0$\\
+$Q(0.5) = \frac{1}{\lambda}e^\frac{\lambda}{2}$, $\lambda>0$\\
+\\
+$Q(0.95) = \frac{1}{\lambda}e^{\lambda*0.95}$, $\lambda>0$\\
 \end{document} 
