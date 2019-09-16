@@ -113,9 +113,13 @@ $e^{-\frac{-(x-\mu)^2}{2\sigma^2}}$
 
 Решение:\\
 \\
-$F(x)=\lambda*e^{-\lambda*x}$\\
-$Q(\alpha) = F^-1(x) = \frac{1}{\lambda}e^{\lambda*\alpha}$ , $\lambda>0$\\
-$Q(0.5) = \frac{1}{\lambda}e^\frac{\lambda}{2}$, $\lambda>0$\\
+$F(x)=0$ для $x<0$\\
 \\
-$Q(0.95) = \frac{1}{\lambda}e^{\lambda*0.95}$, $\lambda>0$\\
+$F(x)=1-e^{-(\lambda)x}$ для $x>0$\\
+\\
+$Q(\alpha) = (1-e^-{\lambda\alpha}) = \frac{1}{1-e^{-\lambda\alpha}}$\\
+$Q(0.5) = \frac{1}{1-e^{-\lambda/2}}$\\
+$Q(0.95) = \frac{1}{1-e^{-0.95\lambda}}$\\
+
+
 \end{document} 
