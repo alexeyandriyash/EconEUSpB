@@ -1,38 +1,56 @@
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy import integrate
+import matplotlib.pylab as plt
+from scipy.integrate import odeint
 
-# define system in terms of a Numpy array
-def Sys(X, t=0):
-    # here X[0] = x and x[1] = y
-    return np.array([ 2*X[0] - X[0]**2 - X[0]*X[1] , - X[1] + X[0]*X[1] ])
+header = 'Game#2 by Andriyash, Babkina, Tokareva'
 
-# generate 1000 linearly spaced numbers for x-axes
-t = np.linspace(0, 20,  1000)
-# initial values: x0 = 10, y0 = 2
-Sys0 = np.array([10, 2])
+color = ['red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink',
+         'red', 'green', 'blue', 'yellow',
+         'magenta', 'olive', 'purple', 'pink'
+         ]
 
-# type "help(integrate.odeint)" if you want more information about integrate.odeint inputs and outputs.
-X, infodict = integrate.odeint(Sys, Sys0, t, full_output=True)
-# infodict['message']                      # integration successful
+samples = []
+power = 3
 
-x,y = X.T
 
-#plot
-fig = plt.figure(figsize=(15,5))
-fig.subplots_adjust(wspace = 0.5, hspace = 0.3)
-ax1 = fig.add_subplot(1,2,1)
-ax2 = fig.add_subplot(1,2,2)
+def system(vect, time):
+    x, y = vect
+    return [y - 3 * x, 2 * y + x]
 
-ax1.plot(x, 'r-', label='predator')
-ax1.plot(y, 'b-', label='prey')
-ax1.set_title("Dynamics in time")
-ax1.set_xlabel("time")
-ax1.grid()
-ax1.legend(loc='best')
 
-ax2.plot(x, y, color="blue")
-ax2.set_xlabel("x")
-ax2.set_ylabel("y")
-ax2.set_title("Phase space")
-ax2.grid()
+for i in range(20):
+    samples.append((0.001 * i ** power, 0.001 * i ** power))
+    samples.append((-0.001 * i ** power, -0.001 * i ** power))
+    samples.append((-0.001 * i ** power, 0.001 * i ** power))
+    samples.append((0.001 * i ** power, -0.001 * i ** power))
+
+t = np.linspace(0, 1, 200)
+plot = plt.figure(header)
+plt.axes()
+plt.grid(plot)
+
+for i, v in enumerate(samples):
+    sol = odeint(system, v, t)
+    plt.quiver(sol[:-1, 0], sol[:-1, 1],
+               sol[1:, 0] - sol[:-1, 0],
+               sol[1:, 1] - sol[:-1, 1],
+               scale_units='xy', angles='xy', scale=1, color=color[i])
+
+plt.show(plot)
